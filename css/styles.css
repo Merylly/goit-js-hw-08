@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery {
+  width: 1440px;
+  padding: 100px 156px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+.gallery-item {
+  width: 360px;
+  height: 300px;
+  flex-basis: calc((100% - 48px) / 3);
+}
+
+.gallery-link {
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
