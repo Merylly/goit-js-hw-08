@@ -80,3 +80,5 @@ const galleryItem = images.map(({ preview, original, description }) => {
 }).join("");
 
 galleryList.innerHTML = galleryItem;
+
+galleryList.addEventListener("click", () => )
