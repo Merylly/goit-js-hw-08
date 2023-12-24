@@ -13,12 +13,10 @@ ul {
   padding: 100px 156px;
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 48px 24px;
   align-items: center;
 }
 .gallery-item {
-  width: 360px;
-  height: 300px;
   flex-basis: calc((100% - 48px) / 3);
 }
 
@@ -27,7 +25,7 @@ ul {
 
 .gallery-image {
   display: block;
-  width: 100%;
-  height: auto;
+  width: 360px;
+  height: 300px;
   object-fit: cover;
 }
