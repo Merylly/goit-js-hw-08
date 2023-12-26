@@ -66,8 +66,9 @@ const images = [
 
 const galleryList = document.querySelector(".gallery");
 
-const galleryItem = images.map(({ preview, original, description }) => {
-  return `<li class="gallery-item">
+const galleryItem = images
+  .map(({ preview, original, description }) => {
+    return `<li class="gallery-item">
   <a class="gallery-link" href="${original}">
     <img
       class="gallery-image"
@@ -77,8 +78,44 @@ const galleryItem = images.map(({ preview, original, description }) => {
     />
   </a>
 </li>`;
-}).join("");
+  })
+  .join("");
 
 galleryList.innerHTML = galleryItem;
 
-galleryList.addEventListener("click", () => )
+galleryList.addEventListener("click", handleClick);
+
+function handleClick(event) {
+  event.preventDefault();
+  if (event.target === event.currentTarget) {
+    return;
+  }
+
+  const instance = basicLightbox.create(
+    `<div class="modal">
+  <a class="gallery-link" href="${event.target.dataset.source}">
+    <img
+      class="gallery-image"
+      src="${event.target.dataset.source}"
+      alt="${event.target.description}"
+    />
+  </a></div>`,
+    {
+      onShow: () => {
+        document.addEventListener("keydown", closeModal);
+      },
+      onClose: () => {
+        document.removeEventListener("keydown", closeModal);
+      },
+    }
+  );
+
+  instance.show();
+
+  function closeModal(event) {
+    if (event.code === "Escape") {
+      document.removeEventListener("keydown", closeModal);
+    }
+    instance.close();
+  }
+}
