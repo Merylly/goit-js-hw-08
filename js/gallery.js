@@ -93,13 +93,12 @@ function handleGalleryClick(event) {
 
   const instance = basicLightbox.create(
     `<div class="modal">
-  <a class="gallery-link" href="${event.target.dataset.source}">
     <img
       class="gallery-image"
       src="${event.target.dataset.source}"
       alt="${event.target.getAttribute("alt")}"
     />
-  </a></div>`,
+  </div>`,
     {
       onShow: () => {
         document.addEventListener("keydown", closeModal);
