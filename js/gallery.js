@@ -83,9 +83,9 @@ const galleryItem = images
 
 galleryList.innerHTML = galleryItem;
 
-galleryList.addEventListener("click", handleClick);
+galleryList.addEventListener("click", handleGalleryClick);
 
-function handleClick(event) {
+function handleGalleryClick(event) {
   event.preventDefault();
   if (event.target === event.currentTarget) {
     return;
@@ -97,7 +97,7 @@ function handleClick(event) {
     <img
       class="gallery-image"
       src="${event.target.dataset.source}"
-      alt="${event.target.description}"
+      alt="${event.target.getAttribute("alt")}"
     />
   </a></div>`,
     {
@@ -114,8 +114,7 @@ function handleClick(event) {
 
   function closeModal(event) {
     if (event.code === "Escape") {
-      document.removeEventListener("keydown", closeModal);
+      instance.close();
     }
-    instance.close();
   }
 }
